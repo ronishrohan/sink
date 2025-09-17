@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+#root, html, body{
+  height: 100vh;
+  width: 100%;
+}
+
+@font-face {
+  font-family: "No Tears";
+  src: url("/fonts/no-tears.ttf") format("truetype");
+}
+@font-face {
+  font-family: "No Tears";
+  src: url("/fonts/no-tears-bold.ttf") format("truetype");
+  font-weight: bold;
+}
+ 
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/jetbrains.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/jetbrains-italic.ttf") format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Martian Mono";
+  src: url("/fonts/martian-mono.woff2") format("woff2");
+}
+
+
+@theme{
+  --color-background: #101010;
+  --color-foreground: white;
+  --font-no-tears: "No Tears", sans-serif;
+  --font-jetbrains: "JetBrains Mono", monospace;
+  --font-martian: "Martian Mono", monospace;
+}
+

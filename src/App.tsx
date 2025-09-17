@@ -1,51 +1,25 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/core";
-import "./App.css";
+import React from "react";
+import Button from "./components/ui/Button";
+import { ArrowsClockwiseIcon, GearSixIcon, HandWaving, HandWavingIcon, HouseSimpleIcon } from "@phosphor-icons/react";
 
-function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
-
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
-  }
-
+const App = () => {
   return (
-    <main className="container">
-      <h1>Welcome to Tauri + React</h1>
-
-      <div className="row">
-        <a href="https://vite.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="size-full flex bg-zinc-950 text-foreground  items-center justify-center font-martian flex-col gap-2 ">
+      <div data-tauri-drag-region className="absolute  bg-zinc-950 border-b border-zinc-900 w-full top-0 left-0 drag flex items-center px-4 py-2" >
+        <div className="font-light text-sm">SINK</div>
       </div>
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
+      {/* <div className="text-5xl font-black">Sink</div>
+      <div className="text-2xl font-black">
+        All your things in one place
+      </div> */}
 
-      <form
-        className="row"
-        onSubmit={(e) => {
-          e.preventDefault();
-          greet();
-        }}
-      >
-        <input
-          id="greet-input"
-          onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter a name..."
-        />
-        <button type="submit">Greet</button>
-      </form>
-      <p>{greetMsg}</p>
-    </main>
+      <Button >
+        <ArrowsClockwiseIcon size={20} weight="regular" /> Sync now</Button>
+
+      <Button variant="secondary">
+        <GearSixIcon  size={20} weight="regular" /> Settings</Button>
+    </div>
   );
-}
+};
 
 export default App;

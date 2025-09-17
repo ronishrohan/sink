@@ -1,0 +1,45 @@
+import React, { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
+
+interface ButtonProps {
+  children: ReactNode;
+  variant?: "primary" | "secondary" | "ghost" | "outline";
+}
+
+const getVariantClasses = (variant: string, inner: boolean = false) => {
+  switch (variant) {
+    case "primary":
+      return inner
+        ? "bg-blue-600"
+        : "bg-blue-400 border-blue-600 hover:border-blue-300";
+    case "secondary":
+      return inner
+        ? "bg-slate-800"
+        : "bg-slate-600 border-slate-800 hover:border-slate-400";
+  }
+};
+
+const variants = {
+  primary: "bg-blue-400 border-blue-600 hover:border-blue-300",
+};
+
+const Button: React.FC<ButtonProps> = ({ children, variant = "primary" }) => {
+  return (
+    <button
+      className={twMerge(
+        " font-martian group font-light text-sm   relative text-white h-[40px] px-4 hover:brightness-110  border-2  cursor-pointer transition-all  items-center justify-center rounded-none overflow-hidden flex  ",
+        getVariantClasses(variant)
+      )}
+    >
+      <div className="z-40 flex gap-2 items-center w-full justify-between">{children}</div>
+      <div
+        className={twMerge(
+          "absolute  left-0 translate-x-[-5px] translate-y-[-5px] top-0 size-[100%] transition-all group-hover:translate-x-0 group-hover:translate-y-0 rounded-none blur-lg",
+          getVariantClasses(variant, true)
+        )}
+      ></div>
+    </button>
+  );
+};
+
+export default Button;
