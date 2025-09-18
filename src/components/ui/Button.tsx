@@ -27,14 +27,15 @@ const Button: React.FC<ButtonProps> = ({ children, variant = "primary" }) => {
   return (
     <button
       className={twMerge(
-        " font-martian group font-light text-sm   relative text-white h-[40px] px-4 hover:brightness-110  border-2  cursor-pointer transition-all  items-center justify-center rounded-none overflow-hidden flex  ",
+        " font-martian group font-light text-sm   relative text-white h-[40px] px-4 hover:brightness-110  border-2  cursor-pointer transition-all  items-center justify-center rounded-none overflow-hidden flex duration-100  active:brightness-130",
         getVariantClasses(variant)
       )}
     >
       <div className="z-40 flex gap-2 items-center w-full justify-between">{children}</div>
+      {/* <div className="size-full absolute left-0 top-0 backdrop-blur-[40px] z-20" ></div> */}
       <div
         className={twMerge(
-          "absolute  left-0 translate-x-[-5px] translate-y-[-5px] top-0 size-[100%] transition-all group-hover:translate-x-0 group-hover:translate-y-0 rounded-none blur-lg",
+          "absolute z-0 left-0 translate-x-[-5px] translate-y-[-5px] top-0 size-[100%] transition-all  rounded-none blur-lg",
           getVariantClasses(variant, true)
         )}
       ></div>
